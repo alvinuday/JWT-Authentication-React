@@ -1,33 +1,26 @@
-import React from 'react'
-import '../styles/App.css';
+import React from 'react'  
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import Register from '../routes/register'  
 import Login from '../routes/login'
-import Register from '../routes/register'
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-const App = () => {
-
-  return (
-    <div id="main">
-      <Router>
-      <h1 className="heading">JWT Authentication</h1>
-      <div className="Wrapper">
-            <Routes>
-            <Route path='/' component={HomePage}/>
-            <Route path='/login' component={Login}/>
-            <Route path='/register' component={Register}/>
-            </Routes>
-
-      </div>
-        </Router>
-    </div>
-  )
-}
-
-const HomePage = ()=> {
-  return (
-  <div>
-    <h1>Home Page</h1>
-  </div>
-  );
-}
-
-export default App;
+import Protected from '../routes/protected'
+import '../styles/App.css' 
+class App extends React.Component {  
+  render() {  
+    return (  
+      <div> 
+        <Router>  
+    <div> 
+      <div className="buttons">
+      <Link to='/login'>Login </Link>|| 
+      <Link to='/register'> Register </Link>
+        </div> 
+      <Route path="/Register" component={Register} />  
+      <Route path="/Login" component={Login} />  
+      <Route path="/Protected" component={Protected} />  
+    </div>  
+  </Router>
+      </div>  
+    )  
+  }  
+}  
+export default App  

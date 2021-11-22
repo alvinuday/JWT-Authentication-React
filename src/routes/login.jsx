@@ -1,6 +1,26 @@
 import React from 'react';
 import '../styles/Login.css';
 function Login() {
+    async function login() {
+        try {
+            const data = {
+                email: document.getElementById('loginEmail').value,
+                password: document.getElementById('loginPassword').value
+            };
+            let response = await fetch('http://localhost:3000/login/', {
+                method: 'POST',
+                body: JSON.stringify(data)
+            });
+            console.log(data);
+            return await response.json();
+
+        } catch (err) {
+            console.error(err);
+            console.log("error");
+            // Handle errors here
+        }
+
+    }
     return (
         <div className="wrapper">
         <div className="heading">
@@ -10,17 +30,17 @@ function Login() {
         
         </div>
         <div className="loginBox">
-                <form>
+            
             <ul className="list">
 
-                <li><label htmlFor="username">Username</label>
-            <input name="username" type="text" value="" placeholder="Username" /></li>
+                <li><label htmlFor="username">Email</label>
+            <input name="username" type="email" id="loginEmail"  placeholder="Email" /></li>
                 <li><label htmlFor="Password">Password</label>
-            <input name="Password" type="text" value="" placeholder="Password" /></li>
+            <input name="Password" type="password" id="loginPassword"  placeholder="Password" /></li>
             </ul>
-                <button type="submit">Login</button>
+                <button onClick={login}>Login</button>
                 
-                </form>
+             
             
             
 
