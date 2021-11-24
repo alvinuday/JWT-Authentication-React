@@ -4,6 +4,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import App from './components/App';
 import './styles/App.css'  
   
+sessionStorage.setItem("users","");
 const routing = (  
   <Router>  
     <div>  
@@ -13,5 +14,6 @@ const routing = (
       {/* <Route path="/Login" component={Login} />   */}
     </div>  
   </Router>  
-)  
+)
+
 ReactDOM.render(routing, document.getElementById('root'));  

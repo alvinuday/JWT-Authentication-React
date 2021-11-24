@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Login.css';
+import {register} from '../components/api'
 function Login() {
     async function register() {
         try {
@@ -8,13 +9,15 @@ function Login() {
                 email: document.getElementById('registerEmail').value,
                 password: document.getElementById('registerPassword').value
             };
-            let response = await fetch('http://localhost:3000/register/', {
-                method: 'POST',
-                mode: 'no-cors',
-                body: JSON.stringify(data)
-            });
-            console.log(data);
-            return await response.json();
+            // let response = await fetch('http://localhost:3000/register/', {
+            //     method: 'POST',
+            //     mode: 'no-cors',
+            //     body: JSON.stringify(data)
+            // });
+            // console.log(data);
+            // return await response.json();
+            register(data);
+            console.log(localStorage.getItem('users'));
 
         } catch (err) {
             console.error(err);
