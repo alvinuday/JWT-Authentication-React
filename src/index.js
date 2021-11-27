@@ -5,6 +5,7 @@ import App from './components/App';
 import './styles/App.css'  
   
 sessionStorage.setItem("users","");
+sessionStorage.setItem("loggedIn",false)
 const routing = (  
   <Router>  
     <div>  

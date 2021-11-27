@@ -1,18 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../styles/Login.css';
+import { loginApi } from '../components/api'
+import { Redirect, Switch, Route } from 'react-router-dom';
 function Login() {
+    const [loggedIn, setLogin] = useState(false);
     async function login() {
         try {
             const data = {
                 email: document.getElementById('loginEmail').value,
                 password: document.getElementById('loginPassword').value
             };
-            let response = await fetch('http://localhost:3000/login/', {
-                method: 'POST',
-                body: JSON.stringify(data)
-            });
-            console.log(data);
-            return await response.json();
+            // let response = await fetch('http://localhost:3000/login/', {
+            //     method: 'POST',
+            //     body: JSON.stringify(data)
+            // });
+            // console.log(data);
+            // return await response.json();
+            loginApi(data).then(() => {
+                if (sessionStorage.getItem('loggedIn') === 'true') {
+                    // console.log("true");
+                    setLogin(true);
+                }
+            })
 
         } catch (err) {
             console.error(err);
@@ -20,6 +29,9 @@ function Login() {
             // Handle errors here
         }
 
+    }
+    if(loggedIn === true) {
+        return <Redirect to="/Protected" />
     }
     return (
         <div className="wrapper">
