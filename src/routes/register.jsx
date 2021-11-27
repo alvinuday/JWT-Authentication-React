@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Redirect, Switch, Route } from 'react-router-dom';
 import '../styles/Login.css';
 import { registerApi } from '../components/api'
@@ -49,11 +49,11 @@ function Register() {
                     <ul className="list">
 
                         <li><label htmlFor="username"> Enter Name</label>
-                            <input name="username" id="registerName" type="text" placeholder="Name" /></li>
+                            <input required name="username" id="registerName" type="text" placeholder="Name" /></li>
                         <li><label htmlFor="Email"> Enter Email</label>
-                            <input name="Email" id="registerEmail" type="email" placeholder="Email" /></li>
+                            <input required name="Email" id="registerEmail" type="email" placeholder="Email" /></li>
                         <li><label htmlFor="Password">Create Password</label>
-                            <input name="Password" id="registerPassword" type="password" placeholder="Password" /></li>
+                            <input required name="Password" id="registerPassword" type="password" placeholder="Password" /></li>
                     </ul>
                     <button type="button" id="register_button" onClick={register}>Register</button>
 

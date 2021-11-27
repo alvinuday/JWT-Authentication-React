@@ -10,6 +10,10 @@ export const registerApi = async (details) => {
         setTimeout(() => {
         sessionStorage.setItem("loggedIn",false);
         var count = 0;
+        if (details.email === '' || details.name === '' || details.password === '') {
+            reject("Fields cannot be left blank");
+            sessionStorage.setItem("loggedIn",false)
+        }
         for(var i=0; i<registered_users.length; i++) {
             if (registered_users[i].email === details.email) {
                 count++;
@@ -31,11 +35,17 @@ export const registerApi = async (details) => {
         alert(message);
     }).catch((error) => {
         console.log(error);
+        sessionStorage.setItem("loggedIn",false);
+        alert(error);
     })
 }
 export const loginApi = async (details) => {
     return new Promise((resolve, reject) => {
         //    var registered_users = JSON.parse(sessionStorage.getItem("users"));
+        if (details.email === '' || details.name === '' || details.password === '') {
+            reject("Fields cannot be left blank");
+            sessionStorage.setItem("loggedIn",false)
+        }
         if(sessionStorage.getItem("users")===""){
             var registered_users = [{}];
         }
@@ -65,5 +75,7 @@ export const loginApi = async (details) => {
         alert(message);
     }).catch((error) => {
         console.log(error);
+        alert(error);
+        sessionStorage.setItem("loggedIn",false);
     })
 }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import '../styles/Login.css';
 import { loginApi } from '../components/api'
 import { Redirect, Switch, Route } from 'react-router-dom';
@@ -30,37 +30,37 @@ function Login() {
         }
 
     }
-    if(loggedIn === true) {
+    if (loggedIn === true) {
         return <Redirect to="/Protected" />
     }
     return (
         <div className="wrapper">
-        <div className="heading">
-            <h3>Login</h3>
+            <div className="heading">
+                <h3>Login</h3>
 
-        
-        
+
+
+            </div>
+            <div className="loginBox">
+                <form>
+                    <ul className="list">
+
+                        <li><label htmlFor="username">Email</label>
+                            <input required name="username" type="email" id="loginEmail" placeholder="Email" /></li>
+                        <li><label htmlFor="Password">Password</label>
+                            <input required name="Password" type="password" id="loginPassword" placeholder="Password" /></li>
+                    </ul>
+                    <button type="button" onClick={login}>Login</button>
+                </form>
+
+
+
+
+            </div>
         </div>
-        <div className="loginBox">
-            
-            <ul className="list">
 
-                <li><label htmlFor="username">Email</label>
-            <input name="username" type="email" id="loginEmail"  placeholder="Email" /></li>
-                <li><label htmlFor="Password">Password</label>
-            <input name="Password" type="password" id="loginPassword"  placeholder="Password" /></li>
-            </ul>
-                <button onClick={login}>Login</button>
-                
-             
-            
-            
+    );
 
-        </div>
-        </div>
 
-    ); 
-        
-    
 }
 export default Login;
