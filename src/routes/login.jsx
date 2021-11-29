@@ -50,7 +50,7 @@ function Login() {
                         <li><label htmlFor="Password">Password</label>
                             <input required name="Password" type="password" id="loginPassword" placeholder="Password" /></li>
                     </ul>
-                    <button type="button" onClick={login}>Login</button>
+                    <button type="button" id="login_button" onClick={login}>Login</button>
                 </form>
 
 
