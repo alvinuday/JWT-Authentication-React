@@ -51,11 +51,11 @@ function Register() {
                         <li><label htmlFor="username"> Enter Name</label>
                             <input required name="username" id="registerName" type="text" placeholder="Name" /></li>
                         <li><label htmlFor="Email"> Enter Email</label>
-                            <input required name="Email" id="registerEmail" type="email" placeholder="Email" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"/></li>
+                            <input required name="Email" id="registerEmail" type="email" placeholder="Email"/></li>
                         <li><label htmlFor="Password">Create Password</label>
                             <input required name="Password" id="registerPassword" type="password" placeholder="Password" /></li>
                     </ul>
-                    <button type="submit" id="register_button" onClick={register}>Register</button>
+                    <button type="button" id="register_button" onClick={register}>Register</button>
 
                 </form>
 
