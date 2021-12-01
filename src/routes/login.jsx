@@ -31,7 +31,7 @@ function Login() {
 
     }
     if (loggedIn === true) {
-        return <Redirect to="/Protected" />
+        return <Redirect to="/protected" />
     }
     return (
         <div className="wrapper">

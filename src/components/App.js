@@ -14,9 +14,9 @@ class App extends React.Component {
       <Link id="login_link" to='/login'>Login </Link>|| 
       <Link id="register_link" to='/register'> Register </Link>
         </div> 
-      <Route path="/Register" component={Register} />  
-      <Route path="/Login" component={Login} />  
-      <Route path="/Protected" component={Protected} />  
+      <Route path="/register" component={Register} />  
+      <Route path="/login" component={Login} />  
+      <Route path="/protected" component={Protected} />  
     </div>  
   </Router>
       </div>  

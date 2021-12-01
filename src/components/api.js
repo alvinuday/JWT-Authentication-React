@@ -14,6 +14,15 @@ export const registerApi = async (details) => {
             reject("Fields cannot be left blank");
             sessionStorage.setItem("loggedIn",false)
         }
+        if (!String(details.email)
+        .toLowerCase()
+        .match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        )) {
+            reject("Enter a valid Email");
+            console.log("Invalid");
+            sessionStorage.setItem("loggedIn",false)
+        }
         for(var i=0; i<registered_users.length; i++) {
             if (registered_users[i].email === details.email) {
                 count++;
@@ -44,6 +53,15 @@ export const loginApi = async (details) => {
         //    var registered_users = JSON.parse(sessionStorage.getItem("users"));
         if (details.email === '' || details.name === '' || details.password === '') {
             reject("Fields cannot be left blank");
+            sessionStorage.setItem("loggedIn",false)
+        }
+        if (!String(details.email)
+        .toLowerCase()
+        .match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        )) {
+            reject("Enter a valid Email");
+            console.log("Invalid");
             sessionStorage.setItem("loggedIn",false)
         }
         if(sessionStorage.getItem("users")===""){
