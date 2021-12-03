@@ -49,6 +49,7 @@ function Login() {
                             <input required name="username" type="email" id="loginEmail" placeholder="Email" /></li>
                         <li><label htmlFor="Password">Password</label>
                             <input required name="Password" type="password" id="loginPassword" placeholder="Password" /></li>
+                        <li><span id="errorMessage"></span></li>
                     </ul>
                     <button type="button" id="login_button" onClick={login}>Login</button>
                 </form>

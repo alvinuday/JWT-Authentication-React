@@ -54,6 +54,7 @@ function Register() {
                             <input required name="Email" id="registerEmail" type="email" placeholder="Email"/></li>
                         <li><label htmlFor="Password">Create Password</label>
                             <input required name="Password" id="registerPassword" type="password" placeholder="Password" /></li>
+                        <li><span id="errorMessage"></span></li>
                     </ul>
                     <button type="button" id="register_button" onClick={register}>Register</button>
 

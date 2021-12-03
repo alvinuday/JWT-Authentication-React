@@ -41,11 +41,13 @@ export const registerApi = async (details) => {
             
         }, 500);
     }).then((message) => {
-        alert(message);
+        // alert(message);
+        document.getElementById("errorMessage").innerHTML = message;
     }).catch((error) => {
         console.log(error);
         sessionStorage.setItem("loggedIn",false);
-        alert(error);
+        document.getElementById("errorMessage").innerHTML = error;
+        // alert(error);
     })
 }
 export const loginApi = async (details) => {
@@ -90,10 +92,12 @@ export const loginApi = async (details) => {
             
         }, 500);
     }).then((message) => {
-        alert(message);
+        // alert(message);
+        document.getElementById("errorMessage").innerHTML = message;
     }).catch((error) => {
         console.log(error);
-        alert(error);
+        // alert(error);
         sessionStorage.setItem("loggedIn",false);
+        document.getElementById("errorMessage").innerHTML = error;
     })
 }
